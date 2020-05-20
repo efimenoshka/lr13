@@ -1,0 +1,60 @@
+<div class="row mb-3">
+    <div class="col-12">
+        <h5>Add an employee</h5>
+    </div>
+
+    <form [formGroup]="workerForm">
+        <div class="row">
+            <div class="col-4">
+                <input type="number" class="form-control" formControlName="id" placeholder="id">
+            </div>
+            <div class="col-4">
+                <input type="text" class="form-control" formControlName="name" placeholder="Name">
+            </div>
+            <div class="col-4">
+                <input type="text" class="form-control" formControlName="surname" placeholder="Surname">
+            </div>
+            <div class="col-6 mt-2">
+                <input type="text" class="form-control" formControlName="phone" [textMask]="{mask: maska}" placeholder="Phone">
+            </div>
+            <div class="col-6 mt-2">
+                <select class="custom-select" formControlName="type">
+                    <option [ngValue]="myWorkerType.programmer">Programmers</option>
+                    <option [ngValue]="myWorkerType.designer">Designers</option>
+                    <option [ngValue]="myWorkerType.copywriter">Copywriters</option>
+                    <option [ngValue]="myWorkerType.manager">Managers</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-12 mt-2">
+            <button class="btn btn-outline-primary btn-sm" [disabled]="workerForm.invalid" (click)="onAddWorker()">Add</button>
+            <button class="btn btn-outline-primary btn-sm ml-2" (click)="onEditdWorker()">Edit</button>
+        </div>
+    </form>
+
+
+    <!-- <div class="col">
+        <input type="number" class="form-control" placeholder="id" [(ngModel)]="id">
+    </div>
+    <div class="col">
+        <input type="text" class="form-control" placeholder="Name" [(ngModel)]="name"> 
+    </div>
+    <div class="col">
+        <input type="text" class="form-control" placeholder="Surname" [(ngModel)]="surname"> 
+    </div>
+    <div class="col">
+        <input type="text" class="form-control" placeholder="Phone" [(ngModel)]="phone"> 
+    </div>
+    <div class="col">
+        <select class="custom-select" [(ngModel)]="type">
+            <option [ngValue]="myWorkerType.programmer">Programmers</option>
+            <option [ngValue]="myWorkerType.designer">Designers</option>
+            <option [ngValue]="myWorkerType.copywriter">Copywriters</option>
+            <option [ngValue]="myWorkerType.manager">Managers</option>
+        </select>
+    </div> -->
+    <!-- <div class="col-12 mt-2">
+        <button class="btn btn-outline-primary btn-sm" (click)="onAddWorker()">Add</button>
+        <button class="btn btn-outline-primary btn-sm ml-2" (click)="onEditdWorker()">Edit</button>
+    </div> -->
+</div>
