@@ -22,7 +22,8 @@ export class AddformWorkerComponent implements OnInit {
   @Output() addWorker = new EventEmitter();
   @Output() editWorker = new EventEmitter();
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit() {
     this.workerForm = new FormGroup({
