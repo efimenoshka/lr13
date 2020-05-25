@@ -8,12 +8,16 @@ import { TextMaskModule } from 'angular2-text-mask';
 import { AppComponent } from './app.component';
 import { TableWorkersComponent } from './ui/table-workers/table-workers.component';
 import { AddformWorkerComponent } from './ui/addform-worker/addform-worker.component';
+import { NameFilterPipe } from './shared/pipes/name-filter.pipe';
+import { SurnameFilterPipe } from './shared/pipes/surname-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableWorkersComponent,
-    AddformWorkerComponent
+    AddformWorkerComponent,
+    NameFilterPipe,
+    SurnameFilterPipe
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, TextMaskModule, HttpClientModule],
   providers: [],

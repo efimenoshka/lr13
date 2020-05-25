@@ -12,6 +12,9 @@ export class AppComponent implements OnInit {
   workers: MyWorker[];
   myWorkerType = MyWorkerType;
 
+  searchName = '';
+  searchSurname = '';
+
   constructor(private httpWorkerskersService: HttpWorkerskersService) { }
 
   ngOnInit() {
@@ -34,7 +37,6 @@ export class AppComponent implements OnInit {
     try {
       let index = this.workers.findIndex((worker) => worker.id === id);
       if (index !== -1) {
-        // this.workers.splice(index, 1);
         await  this.httpWorkerskersService.deleteWorker(id);
       }
     } catch (error) {
@@ -46,7 +48,6 @@ export class AppComponent implements OnInit {
     try {
       let id = this.workers.length > 0 ? this.workers[this.workers.length - 1].id + 1 : 0;
       worker.id = id;
-      // this.workers.push(worker);
       await this.httpWorkerskersService.postWorker(worker);
     } catch (error) {
       console.error(error);

@@ -5,24 +5,22 @@
     </div>
   </div>
   <app-addform-worker (addWorker)="onAddWorker($event)" (editWorker)="onEditWorker($event)"></app-addform-worker>
-  <app-table-workers 
-    [title]="'Programmers'" 
-    [workers]="getByType(myWorkerType.programmer)"
-    (deleteWorker)="onDeleteWorker($event)"
-  ></app-table-workers>
-  <app-table-workers 
-    [title]="'Designers'" 
-    [workers]="getByType(myWorkerType.designer)"
-    (deleteWorker)="onDeleteWorker($event)"
-  ></app-table-workers>
-  <app-table-workers 
-    [title]="'Copywriters'" 
-    [workers]="getByType(myWorkerType.copywriter)"
-    (deleteWorker)="onDeleteWorker($event)"
-  ></app-table-workers>
-  <app-table-workers 
-    [title]="'Managers'" 
-    [workers]="getByType(myWorkerType.manager)"
-    (deleteWorker)="onDeleteWorker($event)"
-  ></app-table-workers>
+
+  <div class="row mb-3">
+    <div class="col-6">
+      <input type="text" class="form-control" [(ngModel)]="searchName" placeholder="Find name">
+    </div>
+    <div class="col-6">
+      <input type="text" class="form-control" [(ngModel)]="searchSurname" placeholder="Find surname">
+    </div>
+  </div>
+
+  <app-table-workers [title]="'Programmers'" [workers]="getByType(myWorkerType.programmer) | nameFilter: searchName | surnameFilter: searchSurname"
+    (deleteWorker)="onDeleteWorker($event)"></app-table-workers>
+  <app-table-workers [title]="'Designers'" [workers]="getByType(myWorkerType.designer) | nameFilter: searchName | surnameFilter: searchSurname"
+    (deleteWorker)="onDeleteWorker($event)"></app-table-workers>
+  <app-table-workers [title]="'Copywriters'" [workers]="getByType(myWorkerType.copywriter) | nameFilter: searchName | surnameFilter: searchSurname"
+    (deleteWorker)="onDeleteWorker($event)"></app-table-workers>
+  <app-table-workers [title]="'Managers'" [workers]="getByType(myWorkerType.manager) | nameFilter: searchName | surnameFilter: searchSurname"
+    (deleteWorker)="onDeleteWorker($event)"></app-table-workers>
 </div>
